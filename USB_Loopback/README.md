@@ -17,6 +17,7 @@ E.g. 0001->1111; 0100->1100; 0101->0111; 1101->1111
 ******************************
 
 reference:
+
 a)Oscillator usage guide: https://www.latticesemi.com/-/media/LatticeSemi/Documents/ApplicationNotes/IK/iCE40OscillatorUsageGuide.ashx?document_id=50670
 
 b)Global reset: https://stackoverflow.com/questions/38030768/icestick-yosys-using-the-global-set-reset-gsr
