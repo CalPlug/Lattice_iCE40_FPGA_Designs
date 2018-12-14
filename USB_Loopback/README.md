@@ -11,7 +11,7 @@ Note:
 
 ******************************
 Known bug:
-Some of the characters may has wrong outputs. They follow the below regularity:
+Some of the characters may have wrong outputs. They follow the below regularity:
 All wrong outputs caused by some 0 bits turning into 1 & Most of them happened in lower bits;
 E.g. 0001->1111; 0100->1100; 0101->0111; 1101->1111
 ******************************
