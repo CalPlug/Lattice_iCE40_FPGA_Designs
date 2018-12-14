@@ -9,13 +9,6 @@ Note:
 3. Use whatever toolchains you familiar with. If you would like to use an open source toolchain, you might consider the reference c).
 4. Basic UART concepts are in the reference e). 
 
-******************************
-Known bug:
-Some of the characters may have wrong outputs. They follow the below regularity:
-All wrong outputs caused by some 0 bits turning into 1 & Most of them happened in lower bits;
-E.g. 0001->1111; 0100->1100; 0101->0111; 1101->1111
-******************************
-
 reference:
 
 a)Oscillator usage guide: https://www.latticesemi.com/-/media/LatticeSemi/Documents/ApplicationNotes/IK/iCE40OscillatorUsageGuide.ashx?document_id=50670
