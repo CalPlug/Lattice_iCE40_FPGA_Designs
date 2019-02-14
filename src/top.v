@@ -7,6 +7,10 @@
 // File Name: top.v
 // File Description: This is the top module implementing the internal logic of FPGA
 // --------------------------------------------------------------------------------------
+// IMPORTANT NOTE FOR SYNTHESIS!!!
+// Please Use the Following command to synthesize the top module:
+// /*  yosys -p "read_verilog baudgen_tx.v; read_verilog uart_tx.v; read_verilog top.v; synth_ice40 -blif top.blif"    */
+// /*  arachne-pnr -d 5k -p ice40_top.pcf -o top.txt top.blif                                                          */
 
 module top(
 	input [7:0] adin_data,
@@ -20,20 +24,20 @@ module top(
 wire hfosc_clk;
 
 
-SB_HFOSC inthosc
+// hfosc_clk frequency =    48 MHz if CLKHF_DIV = "0b00"
+//                           24 MHz if CLKHF_DIV = "0b01"
+//                           12 MHz if CLKHF_DIV = "0b10"
+//                           6  MHz if CLKHF_DIV = "0b11"                       
+SB_HFOSC 
+#(
+  .CLKHF_DIV("0b01")
+)
+inthosc
 (
   .CLKHFPU(1'b1),
   .CLKHFEN(1'b1),
   .CLKHF(hfosc_clk)
 );
-// Defining the values of the divider inside the iCE40 Oscillator SB_HFOSC
-// hfosc_clk frequency =    48 MHz if CLKHF_DIV = "0b00"
-//                           24 MHz if CLKHF_DIV = "0b01"
-//                           12 MHz if CLKHF_DIV = "0b10"
-//                           6  MHz if CLKHF_DIV = "0b11"                         
-defparam inthosc.CLKHF_DIV = "0b01"
-
-
 /*
 SB_PLL40_PAD #(
   .FEEDBACK_PATH("SIMPLE"),
@@ -78,7 +82,7 @@ assign adclk = hfosc_clk;
 
 assign start = start_reg;
 
-always @posedge(hfosc_clk)
+always @(posedge hfosc_clk)
 begin
 	if (ready == 1) begin
 		start_reg <= 1;
