@@ -1,0 +1,25 @@
+# --------------------------------------------------------------------------------------
+# Organization: CALPLUG-FPGA
+# Project Name:
+# Date: Winter 2019
+# FPGA Board: iCE40 UltraPlus SG48I
+# --------------------------------------------------------------------------------------
+# File Name: ice40_top.pcf
+# File Description: This is the physical constraint file defining the I/O pin setup of FPGA
+# --------------------------------------------------------------------------------------
+
+set_io adclk 23
+
+set_io adin_data[0] 28
+set_io adin_data[1] 38
+set_io adin_data[2] 42
+set_io adin_data[3] 36
+set_io adin_data[4] 43
+set_io adin_data[5] 34
+set_io adin_data[6] 31    # <-- WARNING!! This pin is not adjacent to the previous io signal
+set_io adin_data[7] 32    # <-- WARNING!! This pin is not adjacent to the previous io signal
+
+
+
+set_io serial_data 12
+
