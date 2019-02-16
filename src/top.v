@@ -15,13 +15,24 @@
 module top(
 	input [7:0] adin_data,
 	output adclk,
-	/*output daclk,*/
-	output reg serial_data
-	/*output [7:0] daout_data*/
+	output daclk,
+	/*output wire serial_data*/
+	output [7:0] daout_data
 );
 
 
 wire hfosc_clk;
+
+/*
+wire output_clk_global;
+wire output_clk_core;
+wire pll_locked;
+*/
+
+
+/*assign serial_data = 1'b1;*/
+
+
 
 
 // hfosc_clk frequency =    48 MHz if CLKHF_DIV = "0b00"
@@ -30,7 +41,7 @@ wire hfosc_clk;
 //                           6  MHz if CLKHF_DIV = "0b11"                       
 SB_HFOSC 
 #(
-  .CLKHF_DIV("0b01")
+  .CLKHF_DIV("0b10")
 )
 inthosc
 (
@@ -38,48 +49,56 @@ inthosc
   .CLKHFEN(1'b1),
   .CLKHF(hfosc_clk)
 );
+
+
 /*
-SB_PLL40_PAD #(
+SB_PLL40_CORE #(
   .FEEDBACK_PATH("SIMPLE"),
   .DELAY_ADJUSTMENT_MODE_FEEDBACK("FIXED"),
   .DELAY_ADJUSTMENT_MODE_RELATIVE("FIXED"),
   .PLLOUT_SELECT("GENCLK"),
   .FDA_FEEDBACK(4'b1111),
   .FDA_RELATIVE(4'b1111),
-  .DIVR(4'b0011),
-  .DIVF(7'b0101000),
-  .DIVQ(3'b101),
+  .DIVR(2'b11),
+  .DIVF(1'b0),
+  .DIVQ(1'b0),
   .FILTER_RANGE(3'b010)
 ) pll (
-  .PACKAGEPIN(clk_100mhz),
-  .PLLOUTGLOBAL(clk_32mhz),
+  .REFERENCECLK(hfosc_clk),
+  .PLLOUTGLOBAL(output_clk_global),
+  .PLLOUTCORE(output_clk_core),
   .LOCK(pll_locked),
   .BYPASS(1'b0),
   .RESETB(1'b1)
 );
 */
 
+/*
 wire reset;
 wire start;
 reg start_reg;
 reg serial_data;
 reg ready;
+//wire test = 8'b10010011;
+*/
 
+/*
 uart_tx transmitter
 (
 	.clk(hfosc_clk),
 	.rstn(reset),
 	.start(start),
-	.data(adin_data),
+	.data(test),
 	.tx(serial_data),
 	.ready(ready)
 );
-
+*/
 
 assign adclk = hfosc_clk;
-/*assign daclk = hfosc_clk;*/
-/*assign daout_data = adin_data;*/
+assign daclk = hfosc_clk;
+assign daout_data = adin_data;
 
+/*
 assign start = start_reg;
 
 always @(posedge hfosc_clk)
@@ -92,5 +111,6 @@ begin
 	end
 
 end
+*/
 
 endmodule
