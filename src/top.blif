@@ -2,33 +2,259 @@
 
 .model top
 .inputs adin_data[0] adin_data[1] adin_data[2] adin_data[3] adin_data[4] adin_data[5] adin_data[6] adin_data[7]
-.outputs adclk daclk daout_data[0] daout_data[1] daout_data[2] daout_data[3] daout_data[4] daout_data[5] daout_data[6] daout_data[7]
+.outputs adclk serial_data rts cts
 .names $false
 .names $true
 1
 .names $undef
+.gate SB_LUT4 I0=transmitter.load I1=transmitter.state[1] I2=$false I3=$false O=$abc$595$n1
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:44"
+.param LUT_INIT 0001
+.gate SB_LUT4 I0=$abc$595$n38_1 I1=transmitter.state[1] I2=transmitter.load I3=$false O=$abc$595$n12
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:48"
+.param LUT_INIT 11110100
+.gate SB_LUT4 I0=transmitter.bitc[2] I1=transmitter.bitc[0] I2=transmitter.bitc[1] I3=transmitter.bitc[3] O=$abc$595$n38_1
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:52"
+.param LUT_INIT 0100000000000000
+.gate SB_LUT4 I0=$abc$595$n40_1 I1=transmitter.load I2=$false I3=$false O=$abc$595$n27
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:44"
+.param LUT_INIT 1110
+.gate SB_LUT4 I0=transmitter.BAUD0.divcounter[3] I1=transmitter.BAUD0.divcounter[4] I2=$abc$595$n41 I3=$abc$595$n42_1 O=$abc$595$n40_1
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:52"
+.param LUT_INIT 0001000000000000
+.gate SB_LUT4 I0=transmitter.BAUD0.divcounter[0] I1=transmitter.BAUD0.divcounter[1] I2=transmitter.state[1] I3=$false O=$abc$595$n41
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:48"
+.param LUT_INIT 00010000
+.gate SB_LUT4 I0=transmitter.load I1=transmitter.BAUD0.divcounter[2] I2=transmitter.BAUD0.divcounter[5] I3=transmitter.BAUD0.divcounter[6] O=$abc$595$n42_1
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:52"
+.param LUT_INIT 0000000000000001
+.gate SB_LUT4 I0=transmitter.load I1=transmitter.bitc[0] I2=$abc$595$n40_1 I3=$false O=$abc$595$n32
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:48"
+.param LUT_INIT 11001010
+.gate SB_LUT4 I0=$abc$595$n1 I1=transmitter.BAUD0.divcounter[0] I2=$false I3=$false O=$abc$595$n37
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:44"
+.param LUT_INIT 1110
+.gate SB_LUT4 I0=$abc$595$n46 I1=$abc$595$n52 I2=$false I3=$false O=$abc$595$n53
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:44"
+.param LUT_INIT 0100
+.gate SB_LUT4 I0=$abc$595$n47 I1=transmitter.BAUD0.divcounter[2] I2=transmitter.BAUD0.divcounter[5] I3=transmitter.BAUD0.divcounter[6] O=$abc$595$n46
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:52"
+.param LUT_INIT 1000000000000000
+.gate SB_LUT4 I0=transmitter.BAUD0.divcounter[3] I1=transmitter.BAUD0.divcounter[4] I2=transmitter.BAUD0.divcounter[0] I3=transmitter.BAUD0.divcounter[1] O=$abc$595$n47
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:52"
+.param LUT_INIT 0001000000000000
+.gate SB_LUT4 I0=$abc$595$n46 I1=$abc$595$n56 I2=$false I3=$false O=$abc$595$n57
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:44"
+.param LUT_INIT 0100
+.gate SB_LUT4 I0=$abc$595$n46 I1=$abc$595$n58 I2=$false I3=$false O=$abc$595$n59
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:44"
+.param LUT_INIT 0100
+.gate SB_LUT4 I0=$abc$595$n46 I1=$abc$595$n60 I2=$false I3=$false O=$abc$595$n61
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:44"
+.param LUT_INIT 0100
+.gate SB_LUT4 I0=$abc$595$n46 I1=$abc$595$n62 I2=$false I3=$false O=$abc$595$n63
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:44"
+.param LUT_INIT 0100
+.gate SB_LUT4 I0=$abc$595$n46 I1=$abc$595$n64 I2=$false I3=$false O=$abc$595$n65
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:44"
+.param LUT_INIT 0100
+.gate SB_LUT4 I0=$abc$595$n38_1 I1=transmitter.state[1] I2=$false I3=$false O=$abc$595$n68
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:44"
+.param LUT_INIT 1000
+.gate SB_LUT4 I0=transmitter.load I1=$false I2=$false I3=$false O=$abc$595$n49
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:40"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=transmitter.BAUD0.divcounter[1] I1=$false I2=$false I3=$false O=$abc$595$n55
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:40"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=transmitter.bitc[1] I1=$false I2=$false I3=$false O=$abc$595$n67
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:40"
+.param LUT_INIT 01
+.gate SB_LUT4 I0=$false I1=$true I2=transmitter.bitc[0] I3=$false O=$auto$wreduce.cc:347:run$112[0]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:89|/usr/local/bin/../share/yosys/ice40/arith_map.v:53"
+.param LUT_INIT 0110100110010110
+.gate SB_CARRY CI=transmitter.bitc[0] CO=$auto$alumacc.cc:474:replace_alu$114.C[2] I0=$false I1=transmitter.bitc[1]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:89|/usr/local/bin/../share/yosys/ice40/arith_map.v:47"
+.gate SB_LUT4 I0=$false I1=$false I2=transmitter.bitc[2] I3=$auto$alumacc.cc:474:replace_alu$114.C[2] O=$auto$wreduce.cc:347:run$112[2]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:89|/usr/local/bin/../share/yosys/ice40/arith_map.v:53"
+.param LUT_INIT 0110100110010110
+.gate SB_CARRY CI=$auto$alumacc.cc:474:replace_alu$114.C[2] CO=$auto$alumacc.cc:474:replace_alu$114.C[3] I0=$false I1=transmitter.bitc[2]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:89|/usr/local/bin/../share/yosys/ice40/arith_map.v:47"
+.gate SB_LUT4 I0=$false I1=$false I2=transmitter.bitc[3] I3=$auto$alumacc.cc:474:replace_alu$114.C[3] O=$auto$wreduce.cc:347:run$112[3]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:89|/usr/local/bin/../share/yosys/ice40/arith_map.v:53"
+.param LUT_INIT 0110100110010110
+.gate SB_LUT4 I0=$false I1=$true I2=transmitter.BAUD0.divcounter[0] I3=$false O=$abc$595$n52
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:53|/usr/local/bin/../share/yosys/ice40/arith_map.v:53"
+.param LUT_INIT 0110100110010110
+.gate SB_CARRY CI=transmitter.BAUD0.divcounter[0] CO=$auto$alumacc.cc:474:replace_alu$117.C[2] I0=$false I1=transmitter.BAUD0.divcounter[1]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:53|/usr/local/bin/../share/yosys/ice40/arith_map.v:47"
+.gate SB_LUT4 I0=$false I1=$false I2=transmitter.BAUD0.divcounter[2] I3=$auto$alumacc.cc:474:replace_alu$117.C[2] O=$abc$595$n56
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:53|/usr/local/bin/../share/yosys/ice40/arith_map.v:53"
+.param LUT_INIT 0110100110010110
+.gate SB_CARRY CI=$auto$alumacc.cc:474:replace_alu$117.C[2] CO=$auto$alumacc.cc:474:replace_alu$117.C[3] I0=$false I1=transmitter.BAUD0.divcounter[2]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:53|/usr/local/bin/../share/yosys/ice40/arith_map.v:47"
+.gate SB_LUT4 I0=$false I1=$false I2=transmitter.BAUD0.divcounter[3] I3=$auto$alumacc.cc:474:replace_alu$117.C[3] O=$abc$595$n58
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:53|/usr/local/bin/../share/yosys/ice40/arith_map.v:53"
+.param LUT_INIT 0110100110010110
+.gate SB_CARRY CI=$auto$alumacc.cc:474:replace_alu$117.C[3] CO=$auto$alumacc.cc:474:replace_alu$117.C[4] I0=$false I1=transmitter.BAUD0.divcounter[3]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:53|/usr/local/bin/../share/yosys/ice40/arith_map.v:47"
+.gate SB_LUT4 I0=$false I1=$false I2=transmitter.BAUD0.divcounter[4] I3=$auto$alumacc.cc:474:replace_alu$117.C[4] O=$abc$595$n60
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:53|/usr/local/bin/../share/yosys/ice40/arith_map.v:53"
+.param LUT_INIT 0110100110010110
+.gate SB_CARRY CI=$auto$alumacc.cc:474:replace_alu$117.C[4] CO=$auto$alumacc.cc:474:replace_alu$117.C[5] I0=$false I1=transmitter.BAUD0.divcounter[4]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:53|/usr/local/bin/../share/yosys/ice40/arith_map.v:47"
+.gate SB_LUT4 I0=$false I1=$false I2=transmitter.BAUD0.divcounter[5] I3=$auto$alumacc.cc:474:replace_alu$117.C[5] O=$abc$595$n62
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:53|/usr/local/bin/../share/yosys/ice40/arith_map.v:53"
+.param LUT_INIT 0110100110010110
+.gate SB_CARRY CI=$auto$alumacc.cc:474:replace_alu$117.C[5] CO=$auto$alumacc.cc:474:replace_alu$117.C[6] I0=$false I1=transmitter.BAUD0.divcounter[5]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:53|/usr/local/bin/../share/yosys/ice40/arith_map.v:47"
+.gate SB_LUT4 I0=$false I1=$false I2=transmitter.BAUD0.divcounter[6] I3=$auto$alumacc.cc:474:replace_alu$117.C[6] O=$abc$595$n64
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:53|/usr/local/bin/../share/yosys/ice40/arith_map.v:53"
+.param LUT_INIT 0110100110010110
+.gate SB_DFFESS C=output_clk_core D=transmitter.shifter[1] E=$abc$595$n27 Q=transmitter.shifter[0] S=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:66|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESR C=output_clk_core D=transmitter.shifter[2] E=$abc$595$n27 Q=transmitter.shifter[1] R=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:66|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESS C=output_clk_core D=transmitter.shifter[3] E=$abc$595$n27 Q=transmitter.shifter[2] S=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:66|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESR C=output_clk_core D=transmitter.shifter[4] E=$abc$595$n27 Q=transmitter.shifter[3] R=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:66|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESR C=output_clk_core D=transmitter.shifter[5] E=$abc$595$n27 Q=transmitter.shifter[4] R=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:66|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESR C=output_clk_core D=transmitter.shifter[6] E=$abc$595$n27 Q=transmitter.shifter[5] R=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:66|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESR C=output_clk_core D=transmitter.shifter[7] E=$abc$595$n27 Q=transmitter.shifter[6] R=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:66|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESR C=output_clk_core D=transmitter.shifter[8] E=$abc$595$n27 Q=transmitter.shifter[7] R=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:66|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESR C=output_clk_core D=transmitter.shifter[9] E=$abc$595$n27 Q=transmitter.shifter[8] R=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:66|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFE C=output_clk_core D=$abc$595$n49 E=$abc$595$n27 Q=transmitter.shifter[9]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:66|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESR C=output_clk_core D=$auto$wreduce.cc:347:run$112[0] E=$abc$595$n27 Q=transmitter.bitc[0] R=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:82|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESR C=output_clk_core D=$abc$595$n67 E=$abc$595$n32 Q=transmitter.bitc[1] R=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:82|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESR C=output_clk_core D=$auto$wreduce.cc:347:run$112[2] E=$abc$595$n27 Q=transmitter.bitc[2] R=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:82|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFESR C=output_clk_core D=$auto$wreduce.cc:347:run$112[3] E=$abc$595$n27 Q=transmitter.bitc[3] R=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:82|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFF C=output_clk_core D=transmitter.shifter[0] Q=transmitter.tx
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:94|/usr/local/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFF C=output_clk_core D=$abc$595$n68 Q=transmitter.state[0]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFF C=output_clk_core D=$abc$595$n12 Q=transmitter.state[1]
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFF C=output_clk_core D=transmitter.state[0] Q=transmitter.load
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "/usr/local/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFFSS C=output_clk_core D=$abc$595$n53 Q=transmitter.BAUD0.divcounter[0] S=$abc$595$n1
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:46|/usr/local/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFFESS C=output_clk_core D=$abc$595$n55 E=$abc$595$n37 Q=transmitter.BAUD0.divcounter[1] S=$abc$595$n1
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:46|/usr/local/bin/../share/yosys/ice40/cells_map.v:8"
+.gate SB_DFFSS C=output_clk_core D=$abc$595$n57 Q=transmitter.BAUD0.divcounter[2] S=$abc$595$n1
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:46|/usr/local/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFFSR C=output_clk_core D=$abc$595$n59 Q=transmitter.BAUD0.divcounter[3] R=$abc$595$n1
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:46|/usr/local/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFFSR C=output_clk_core D=$abc$595$n61 Q=transmitter.BAUD0.divcounter[4] R=$abc$595$n1
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:46|/usr/local/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFFSS C=output_clk_core D=$abc$595$n63 Q=transmitter.BAUD0.divcounter[5] S=$abc$595$n1
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:46|/usr/local/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_DFFSS C=output_clk_core D=$abc$595$n65 Q=transmitter.BAUD0.divcounter[6] S=$abc$595$n1
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:85|uart_tx.v:98|baudgen_tx.v:46|/usr/local/bin/../share/yosys/ice40/cells_map.v:2"
+.gate SB_GB GLOBAL_BUFFER_OUTPUT=global_hfosc_clk USER_SIGNAL_TO_GLOBAL_BUFFER=hfosc_clk
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:49"
 .gate SB_HFOSC CLKHF=hfosc_clk CLKHFEN=$true CLKHFPU=$true
 .attr module_not_derived 00000000000000000000000000000001
-.attr src "top.v:42"
+.attr src "top.v:36"
 .param CLKHF_DIV "0b10"
-.names hfosc_clk adclk
+.gate SB_PLL40_CORE BYPASS=$false LOCK=pll_locked PLLOUTCORE=output_clk_core PLLOUTGLOBAL=output_clk_global REFERENCECLK=global_hfosc_clk RESETB=$true
+.attr module_not_derived 00000000000000000000000000000001
+.attr src "top.v:59"
+.param DELAY_ADJUSTMENT_MODE_FEEDBACK "FIXED"
+.param DELAY_ADJUSTMENT_MODE_RELATIVE "FIXED"
+.param DIVF 1
+.param DIVQ 1
+.param DIVR 0
+.param FDA_FEEDBACK 1111
+.param FDA_RELATIVE 1111
+.param FEEDBACK_PATH "SIMPLE"
+.param FILTER_RANGE 010
+.param PLLOUT_SELECT "GENCLK"
+.names output_clk_global adclk
 1 1
-.names hfosc_clk daclk
+.names $true cts
 1 1
-.names adin_data[0] daout_data[0]
+.names $true rts
 1 1
-.names adin_data[1] daout_data[1]
+.names transmitter.tx serial_data
 1 1
-.names adin_data[2] daout_data[2]
+.names output_clk_core transmitter.BAUD0.clk
 1 1
-.names adin_data[3] daout_data[3]
+.names output_clk_core transmitter.clk
 1 1
-.names adin_data[4] daout_data[4]
-1 1
-.names adin_data[5] daout_data[5]
-1 1
-.names adin_data[6] daout_data[6]
-1 1
-.names adin_data[7] daout_data[7]
+.names transmitter.load transmitter.state[2]
 1 1
 .end
