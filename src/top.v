@@ -17,14 +17,14 @@
 
 
 module top(
-	input [7:0] adin_data,
-	output adclk,
-	/*output daclk,*/
-	output wire serial_data,
-	output wire rts,
-	output wire cts
+	input wire [7:0] PIXEL		,
+	input wire VSYNC			,
+	input wire HREF				,
+	input wire PCLK				,
+	output wire SIOC			,
+	inout wire SIOD				,
+	output wire XCLK			
 	
-	/*output [7:0] daout_data*/
 );
 
 
@@ -77,41 +77,9 @@ SB_PLL40_CORE #(
 );
 
 
-wire reset = 1'b1;
-wire start = 1'b1;
-wire serial_data;
-wire ready;
-wire test = 8'b10010011;
-uart_tx transmitter
+CAMERA_CONTROLLER cam
 (
-  .clk(output_clk_core),
-  .rstn(reset),
-  .start(start),
-  .data(test),
-  .tx(serial_data),
-  .ready(ready)
-);
 
-
-assign adclk = output_clk_global;
-assign rts = 1'b1;
-assign cts = 1'b1;
-
-/*assign daclk = hfosc_clk;*/
-/*assign daout_data = adin_data;*/
-
-
-/*
-always @(posedge output_clk_core)
-begin
-	if (ready == 1) begin
-		start <= 1;
-	end
-	else begin
-		start <= 0;
-	end
-
-end
-*/
+)
 
 endmodule
