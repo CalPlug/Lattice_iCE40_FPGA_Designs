@@ -13,7 +13,10 @@
 // /*  arachne-pnr -d 5k -p ice40_top.pcf -o top.txt top.blif                                                          */
 // --------------------------------------------------------------------------------------
 
-`include "baudgen.vh"
+`include "OV7670_Camera/camera_config.v"
+`include "OV7670_Camera/I2C_Interface.v"
+`include "OV7670_Camera/camera_controller.v"
+
 
 
 module top(
@@ -32,7 +35,9 @@ wire hfosc_clk;
 // hfosc_clk frequency =    48 MHz if CLKHF_DIV = "0b00"
 //                           24 MHz if CLKHF_DIV = "0b01"
 //                           12 MHz if CLKHF_DIV = "0b10"
-//                           6  MHz if CLKHF_DIV = "0b11"                       
+//                           6  MHz if CLKHF_DIV = "0b11"
+// WARNING: Other clock in the modules has dependency on the hfosc_clk. 
+// WARNING: BE CAREFUL if attempt to change the hfosc_clk.                        
 SB_HFOSC 
 #(
   .CLKHF_DIV("0b10")
@@ -44,12 +49,13 @@ inthosc
   .CLKHF(hfosc_clk)
 );
 
-
 wire global_hfosc_clk;
 SB_GB gbu_hfosc(
   .USER_SIGNAL_TO_GLOBAL_BUFFER(hfosc_clk),
   .GLOBAL_BUFFER_OUTPUT(global_hfosc_clk)
 );
+
+
 
 
 
@@ -69,17 +75,26 @@ SB_PLL40_CORE #(
   .FILTER_RANGE(3'b010)
 ) pll (
   .REFERENCECLK(global_hfosc_clk),
-  .PLLOUTGLOBAL(output_clk_global),
-  .PLLOUTCORE(output_clk_core),
+  .PLLOUTGLOBAL(global_clk),
+  .PLLOUTCORE(core_clk),
   .LOCK(pll_locked),
   .BYPASS(1'b0),
   .RESETB(1'b1)
 );
+assign XCLK = global_clk;
 
 
-CAMERA_CONTROLLER cam
-(
 
-)
+wire reset_cam = 1'b0;
+wire config_finished;
+CAMERA_CONTROLLER cam(
+	.GLOBAL_CLK(global_clk),
+	.RESET(reset_cam),
+	.SIOD(SIOD),
+	.SIOC(SIOC),
+	.CONFIG_FINISHED(config_finished)
+);
+
+
 
 endmodule

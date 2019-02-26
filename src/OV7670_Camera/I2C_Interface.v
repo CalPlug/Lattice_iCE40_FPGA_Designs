@@ -9,11 +9,17 @@
 // --------------------------------------------------------------------------------------
 
 
-module I2C_INTERFACE(
+module I2C_INTERFACE
+#(	
+	parameter write_ID = 8'h42,
+	parameter read_ID = 8'h43
+)
+(
 	input wire GLOBAL_CLK		,
 	input wire START_TRANSFER 	,
-	input wire [7:0] SDATA 		,
-	inout reg SIOD				,
+	input wire [7:0] SUBADDRESS ,
+	input wire [7:0] VALUE		,
+	inout wire SIOD				,
 	output reg SIOC				,
 	output reg READY
 );
@@ -21,41 +27,28 @@ module I2C_INTERFACE(
 
 reg transmitting = 1'b0;
 reg [5:0] counter = 6'b0;
-reg [3:0] bits_sent = 4'b0;
-reg [7:0] q_data;
+reg [4:0] bits_sent = 4'b0;
+reg [26:0] q_data;
+
+reg SIOD_temp;
+assign SIOD = SIOD_temp;
 
 always @(*)
 begin
 	if (!transmitting) begin
 		READY = 1'b1;
 		counter = 6'b0;
-		bits_sent = 4'b0;
+		bits_sent = 5'b0;
 		SIOC = 1'b1;
-		SIOD = 1'bz;
+		SIOD_temp = 1'b1;
 		if (START_TRANSFER) begin
 			transmitting = 1'b1;
-			SIOD = 1'b0;
-			q_data = SDATA;
+			SIOD_temp = 1'b0;
+			q_data = {write_ID, 1'b0 ,SUBADDRESS, 1'b0 , VALUE , 1'b0};
 			READY = 1'b0;
 		end
 	end
 end
-
-
-always @(negedge SIOC)
-begin
-	if (bits_sent == 4'b1000)
-		transmitting = 1'b0;
-		READY = 1'b1;
-	else begin
-		if (transmitting) begin
-			SIOD = q_data[0];
-			q_data = q_data >> 1;
-			bits_sent = bits_sent + 1;
-		end
-	end
-end
-
 
 always @(posedge GLOBAL_CLK)
 begin
@@ -66,6 +59,30 @@ begin
 			counter = counter + 1;	
 	end
 end
+
+reg loaded = 1'b0;
+always @(negedge GLOBAL_CLK)
+begin
+	if (bits_sent == 5'b11011 && SIOC == 1'b1) begin	// 27 bits are all sent out through SIOD
+		SIOD_temp = 1'b1;
+		transmitting = 1'b0;
+	end
+	else if (SIOC == 1'b0 && loaded == 1'b0) begin
+		if (transmitting) begin
+			SIOD_temp = q_data[26];
+			q_data = q_data << 1;
+			bits_sent = bits_sent + 1;
+			loaded = 1'b1;
+		end
+	end
+end
+
+always @(posedge SIOC)
+begin
+	loaded <= 1'b0;
+end
+
+
 
 // Create a 187.5 KHz SIOC serial clock in the following block
 always @(*)
