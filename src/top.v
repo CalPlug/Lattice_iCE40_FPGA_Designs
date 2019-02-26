@@ -12,14 +12,15 @@
 // /*  yosys -p "read_verilog baudgen_tx.v; read_verilog uart_tx.v; read_verilog top.v; synth_ice40 -blif top.blif"    */
 // /*  arachne-pnr -d 5k -p ice40_top.pcf -o top.txt top.blif                                                          */
 // --------------------------------------------------------------------------------------
-
+/*
 `include "OV7670_Camera/camera_config.v"
 `include "OV7670_Camera/I2C_Interface.v"
 `include "OV7670_Camera/camera_controller.v"
-
+*/
 
 
 module top(
+	/*
 	input wire [7:0] PIXEL		,
 	input wire VSYNC			,
 	input wire HREF				,
@@ -27,7 +28,11 @@ module top(
 	output wire SIOC			,
 	inout wire SIOD				,
 	output wire XCLK			
-	
+	*/
+	input wire [7:0] adin_data,
+	output wire [7:0] daout_data,
+	output wire adclk,
+	output wire daclk
 );
 
 
@@ -49,6 +54,11 @@ inthosc
   .CLKHF(hfosc_clk)
 );
 
+assign adclk = hfosc_clk;
+assign daclk = hfosc_clk;
+assign doout_data = ~adin_data;
+
+/*
 wire global_hfosc_clk;
 SB_GB gbu_hfosc(
   .USER_SIGNAL_TO_GLOBAL_BUFFER(hfosc_clk),
@@ -94,7 +104,7 @@ CAMERA_CONTROLLER cam(
 	.SIOC(SIOC),
 	.CONFIG_FINISHED(config_finished)
 );
-
+*/
 
 
 endmodule

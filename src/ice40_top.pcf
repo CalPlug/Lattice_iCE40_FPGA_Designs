@@ -19,20 +19,20 @@ set_io adin_data[5] 34
 set_io adin_data[6] 31    # <-- WARNING!! This pin is not adjacent to the previous io signal
 set_io adin_data[7] 32    # <-- WARNING!! This pin is not adjacent to the previous io signal
 
-set_io serial_data 19
-set_io rts 21
-set_io cts 12
+#set_io serial_data 19
+#set_io rts 21
+#set_io cts 12
 
-#set_io daclk 44
+set_io daclk 44
 
-#set_io daout_data[0] 2
-#set_io daout_data[1] 46
-#set_io daout_data[2] 47
-#set_io daout_data[3] 45
-#set_io daout_data[4] 48
-#set_io daout_data[5] 3
-#set_io daout_data[6] 4
-#set_io daout_data[7] 6    # <-- WARNING!! This pin is not adjscent to the previous io signal
+set_io daout_data[0] 2
+set_io daout_data[1] 46
+set_io daout_data[2] 47
+set_io daout_data[3] 45
+set_io daout_data[4] 48
+set_io daout_data[5] 3
+set_io daout_data[6] 4
+set_io daout_data[7] 6    # <-- WARNING!! This pin is not adjscent to the previous io signal
 
 
 
