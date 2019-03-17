@@ -1,0 +1,345 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/sim
+vadder
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1551086854
+!i10b 1
+!s100 ijVXn`j8gkb?JEem_D[5R0
+IN6[G;Df9ZK:B5A6;O2NjJ2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 adder_sv_unit
+S1
+R0
+Z4 w1549926200
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/adder.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/adder.sv
+L0 3
+Z5 OL;L;10.4c;61
+r1
+!s85 0
+31
+Z6 !s108 1551086854.000000
+Z7 !s107 /users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/BranchController.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/RISC_V.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/Datapath.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/Controller.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/RegFile.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/alu.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/ALUController.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/instructionmemory.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/datamemory.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/mux2.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/imm_Gen.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/flopr.sv|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/adder.sv|
+Z8 !s90 -quiet|-64|-sv|-f|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/rtl.cfg|
+!i113 0
+Z9 o-quiet -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+valu
+R1
+R2
+!i10b 1
+!s100 hIfP]Dn0g1J:cnZKlzd:g0
+IjmD^1GGAN<4J[i[7;ezA22
+R3
+!s105 alu_sv_unit
+S1
+R0
+w1550554683
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/alu.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/alu.sv
+Z10 L0 23
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+vALUController
+R1
+R2
+!i10b 1
+!s100 o9:EcBXkVW_b[Y]fIhVad0
+ICEL3n;00z[XzJYR6b`nMK1
+R3
+!s105 ALUController_sv_unit
+S1
+R0
+Z11 w1551085402
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/ALUController.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/ALUController.sv
+R10
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+n@a@l@u@controller
+vBranchController
+R1
+R2
+!i10b 1
+!s100 ZN0e_TPcb0ec19bI_gnSB1
+IjgPCESdhb;ZAkN<mnXiWn1
+R3
+!s105 BranchController_sv_unit
+S1
+R0
+Z12 w1550620896
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/BranchController.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/BranchController.sv
+R10
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+n@branch@controller
+vController
+R1
+R2
+!i10b 1
+!s100 45Ij7MJE[3I?Pm?hLO:V93
+IFKJnI@JH3MOCBHi6=3AlB1
+R3
+!s105 Controller_sv_unit
+S1
+R0
+R12
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/Controller.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/Controller.sv
+Z13 L0 22
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+n@controller
+vdatamemory
+R1
+R2
+!i10b 1
+!s100 DLV832QA^1g:N9[d^7Mj^3
+I_L55;b[XR06[8`j[=[8U@1
+R3
+!s105 datamemory_sv_unit
+S1
+R0
+R11
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/datamemory.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/datamemory.sv
+L0 5
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+vDatapath
+R1
+R2
+!i10b 1
+!s100 h2=iRC6GE@8z<cNfcocgF2
+I@nGeUIdbVD`TojFmf?_G[0
+R3
+!s105 Datapath_sv_unit
+S1
+R0
+R12
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/Datapath.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/Datapath.sv
+R13
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+n@datapath
+vflopr
+R1
+R2
+!i10b 1
+!s100 B6BS^>`X=WIeQVmG9i5VI0
+IBQhzOk0KaRkf^:VUDe7Da1
+R3
+!s105 flopr_sv_unit
+S1
+R0
+R4
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/flopr.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/flopr.sv
+R10
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+vimm_Gen
+R1
+R2
+!i10b 1
+!s100 T;G@?CHH?Ndl]]>c<<W1U0
+I;<YbS3Y2WR8inXnU4JQnl1
+R3
+!s105 imm_Gen_sv_unit
+S1
+R0
+R12
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/imm_Gen.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/imm_Gen.sv
+R10
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+nimm_@gen
+vinstructionmemory
+R1
+R2
+!i10b 1
+!s100 0Ai?cIG8H[Toj;mgHgM3T0
+IBcB[1dafNGkmc@QiPCkCM2
+R3
+!s105 instructionmemory_sv_unit
+S1
+R0
+R11
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/instructionmemory.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/instructionmemory.sv
+R10
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+vmux2
+R1
+R2
+!i10b 1
+!s100 3_EK0fT1d30k5]<?Kk?@F3
+I<TB7U?Hla[a623gLE[FC>2
+R3
+!s105 mux2_sv_unit
+S1
+R0
+w1550196751
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/mux2.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/mux2.sv
+R10
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+vRegFile
+R1
+R2
+!i10b 1
+!s100 2cGb6>@mnQP5YGGLJFYg]1
+I]eBW=X0U]i2J]eKPRBfSL3
+R3
+!s105 RegFile_sv_unit
+S1
+R0
+R4
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/RegFile.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/RegFile.sv
+L0 3
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+n@reg@file
+vriscv
+R1
+R2
+!i10b 1
+!s100 4g[6_[ZEgcb:Ig:R1dfGV0
+InK:_@S25[_`dAodG`?ECW3
+R3
+!s105 RISC_V_sv_unit
+S1
+R0
+R12
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/RISC_V.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/design/RISC_V.sv
+L0 3
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+vtb_top
+R1
+R2
+!i10b 1
+!s100 ffOF2]eEQaH]X;l^m5HME0
+I519BWz@EEG3M@51]g[7Ea2
+R3
+!s105 tb_top_sv_unit
+S1
+R0
+R11
+8/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/verif/tb_top.sv
+F/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/verif/tb_top.sv
+L0 3
+R5
+r1
+!s85 0
+31
+R6
+!s107 /users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/verif/tb_top.sv|
+!s90 -quiet|-64|-sv|-f|/users/ugrad/2017/fall/lambh2/EECS112L/Repo/EECS112L_Lab3/Lab_Files/verif/tb.cfg|-work|work|
+!i113 0
+o-quiet -sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Ttb_top_opt
+R2
+VN]FIjOYK71bkJWelO3kzZ0
+04 6 4 work tb_top fast 0
+o-quiet +acc -work work
+ntb_top_opt
+OL;O;10.4c;61
