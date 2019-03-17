@@ -7,20 +7,17 @@
 // File Name: top.v
 // File Description: This is the top module implementing the internal logic of FPGA
 // --------------------------------------------------------------------------------------
-// IMPORTANT NOTE FOR SYNTHESIS!!!
-// Please Use the Following command to synthesize the top module:
-// /*  yosys -p "read_verilog top.v; synth_ice40 -blif top.blif"    */
-// /*  arachne-pnr -d 5k -p syn/upduino_top.pcf -o syn/top.txt syn/top.blif    */
-// --------------------------------------------------------------------------------------
 
 `include "fft_controller.v"
 
 
 module top(
 	input wire [7:0] adin_data,
+    input wire rst;
 	output wire [7:0] daout_data,
 	output wire adclk,
-	output wire daclk
+	output wire daclk, 
+    output wire txline,
 );
 
 
@@ -47,10 +44,6 @@ SB_GB gbu_hfosc(
   .USER_SIGNAL_TO_GLOBAL_BUFFER(hfosc_clk),
   .GLOBAL_BUFFER_OUTPUT(global_hfosc_clk)
 );
-
-
-
-
 
 wire output_clk_global;
 wire output_clk_core;
@@ -96,6 +89,18 @@ fft_controller fft
 assign adclk = hfosc_clk;
 assign daclk = hfosc_clk;
 assign doout_data = ~adin_data;
+
+wire rdy;
+reg start;
+
+uart_tx uart_tx1(
+    .clk (hfosc_clk) ,
+    .rst (rst)    ,
+    .start (start)  ,
+    .data (//from buffer)  ,
+    .tx (txline)  ,
+    .ready (rdy)  ,
+);
 
 
 endmodule
